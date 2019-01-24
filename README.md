@@ -1,1 +1,1 @@
-# phpfileuploader02
+# phpimageresize01
