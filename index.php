@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 $upload = false; // true if file upload succeeded
 $cropVar = array(); // collection of parameters for cropping image
 
-/* create uplods folder */
+/* create uploads folder */
 
 if (!file_exists('uploads')) {
 	mkdir('uploads');
