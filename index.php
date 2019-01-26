@@ -12,6 +12,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 $upload = false; // true if file upload succeeded
 $cropVar = array(); // collection of parameters for cropping image
 $thumbpos =	(!empty(isset($_POST['thumbpos']))) ? trim($_POST['thumbpos']) : 'center' ;
