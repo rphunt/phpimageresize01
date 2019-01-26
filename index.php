@@ -1,5 +1,6 @@
 <?php
 /*
+*
 *** This is intended as demo code ***
 * This is for testing PHP resize functions on uploaded images.
 * This file includes the upload form, and the code for processing the image.
