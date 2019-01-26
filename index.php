@@ -1,7 +1,6 @@
 <?php
 /*
-*** NOT A FINAL PRODUCT ***
-*** This is intended as demo code only.***
+*** This is intended as demo code ***
 * This is for testing PHP resize functions on uploaded images.
 * This file includes the upload form, and the code for processing the image.
 * It has code for resizing an image, and for automatically making a centered/cropped thumbnail.
@@ -14,6 +13,7 @@ error_reporting(E_ALL);
 
 $upload = false; // true if file upload succeeded
 $cropVar = array(); // collection of parameters for cropping image
+$thumbpos =	(!empty(isset($_POST['thumbpos']))) ? trim($_POST['thumbpos']) : 'center' ;
 
 /* create uploads folder */
 
@@ -92,6 +92,7 @@ if ($upload) {
 		echo "width: ".$imgWd."<br>";
 		echo "height: ".$imgHt."<br>";
 		echo "aspect: ".$imgAsp."<br>";
+		echo $thumbpos;
 
 		/* information for centering and cropping */
 		if ($imgAsp<1) { 
@@ -134,6 +135,14 @@ if ($upload) {
 <form method="post" action="" enctype="multipart/form-data">
 
 	<input type="file" name="userfile" id="userfile">
+	<select name="thumbpos" id="thumbpos">
+		<option value="center">center</option>
+		<option value="left">left</option>
+		<option value="right">right</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+	</select>
+
 	<input type="submit">
 
 </form>
