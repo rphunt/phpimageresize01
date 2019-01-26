@@ -4,7 +4,10 @@
 *** This is intended as demo code ***
 * This is for testing PHP resize functions on uploaded images.
 * This file includes the upload form, and the code for processing the image.
-* It has code for resizing an image, and for automatically making a centered/cropped thumbnail.
+* It has code for resizing an image, and for automatically making a positioned/cropped thumbnail.
+* To position thumbnail, there is a select element.
+* For portrait image, "left" and "right" selections are ignored, thumb will be centered
+* For landscape image, "top" and "bottom" selections are ignored, thumb will be centered
 */
 
 /* display errors */
