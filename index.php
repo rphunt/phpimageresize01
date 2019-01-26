@@ -86,28 +86,28 @@ if ($upload) {
 
 	if ($sourceImage!=NULL) {
 
-		/* get image dimensions */
-		$imgWd = imagesx($sourceImage); //width
-		$imgHt = imagesy($sourceImage); //height
-		$imgAsp = ($imgWd/$imgHt); // aspect ration
+		// /* get image dimensions */
+		// $imgWd = imagesx($sourceImage); //width
+		// $imgHt = imagesy($sourceImage); //height
+		// $imgAsp = ($imgWd/$imgHt); // aspect ration
 
-		echo "width: ".$imgWd."<br>";
-		echo "height: ".$imgHt."<br>";
-		echo "aspect: ".$imgAsp."<br>";
-		echo $thumbpos;
+		// echo "width: ".$imgWd."<br>";
+		// echo "height: ".$imgHt."<br>";
+		// echo "aspect: ".$imgAsp."<br>";
+		// echo $thumbpos;
 
-		/* information for centering and cropping */
-		if ($imgAsp<1) { 
-			$cropVar['x'] = 0;
-			$cropVar['y'] = ($imgHt - $imgWd)/2;
-			$cropVar['w'] = $imgWd;
-			$cropVar['h'] = $imgWd;
-		} else {
-			$cropVar['x'] = ($imgWd - $imgHt)/2;
-			$cropVar['y'] = 0;
-			$cropVar['w'] = $imgHt;
-			$cropVar['h'] = $imgHt;
-		}
+		//  information for centering and cropping 
+		// if ($imgAsp<1) { 
+		// 	$cropVar['x'] = 0;
+		// 	$cropVar['y'] = ($imgHt - $imgWd)/2;
+		// 	$cropVar['w'] = $imgWd;
+		// 	$cropVar['h'] = $imgWd;
+		// } else {
+		// 	$cropVar['x'] = ($imgWd - $imgHt)/2;
+		// 	$cropVar['y'] = 0;
+		// 	$cropVar['w'] = $imgHt;
+		// 	$cropVar['h'] = $imgHt;
+		// }
 
 		/* crop image then resize */
 		$imgCropCntr = imagecrop($sourceImage, ['x'=>$cropVar['x'], 'y'=>$cropVar['y'], 'width'=>$cropVar['w'], 'height'=>$cropVar['h']]);
