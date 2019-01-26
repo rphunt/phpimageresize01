@@ -93,7 +93,7 @@ if ($upload) {
 		echo "width: ".$imgWd."<br>";
 		echo "height: ".$imgHt."<br>";
 		echo "aspect: ".$imgAsp."<br>";
-		echo $thumbpos;
+		echo "thumb position: ".$thumbpos;
 
 		/* information for positioning and cropping */
 		/* if thumb position not applicable to aspect ratio, thumb will be centered */
