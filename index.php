@@ -12,7 +12,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 $upload = false; // true if file upload succeeded
 $cropVar = array(); // collection of parameters for cropping image
 $thumbpos =	(!empty(isset($_POST['thumbpos']))) ? trim($_POST['thumbpos']) : 'center' ;
@@ -96,17 +95,38 @@ if ($upload) {
 		echo "aspect: ".$imgAsp."<br>";
 		echo $thumbpos;
 
-		 information for centering and cropping 
+		/* information for positioning and cropping */
+		/* if thumb position not applicable to aspect ratio, thumb will be centered */
+
 		if ($imgAsp<1) { 
-			$cropVar['x'] = 0;
-			$cropVar['y'] = ($imgHt - $imgWd)/2;
+
 			$cropVar['w'] = $imgWd;
 			$cropVar['h'] = $imgWd;
+
+			if ($thumbpos=="top") {
+				$cropVar['x'] = 0;
+				$cropVar['y'] = 0;
+			} else if ($thumbpos=="bottom") {
+				$cropVar['x'] = 0;
+				$cropVar['y'] = $imgHt - $imgWd;
+			} else {
+				$cropVar['x'] = 0;
+				$cropVar['y'] = ($imgHt - $imgWd)/2;
+			}
 		} else {
-			$cropVar['x'] = ($imgWd - $imgHt)/2;
-			$cropVar['y'] = 0;
 			$cropVar['w'] = $imgHt;
 			$cropVar['h'] = $imgHt;
+
+			if ($thumbpos=="left") {
+				$cropVar['x'] = 0;
+				$cropVar['y'] = 0;
+			} else if ($thumbpos=="right") {
+				$cropVar['x'] = $imgWd - $imgHt;
+				$cropVar['y'] = 0;
+			} else {
+				$cropVar['x'] = ($imgWd - $imgHt)/2;
+				$cropVar['y'] = 0;
+			}
 		}
 
 		/* crop image then resize */
